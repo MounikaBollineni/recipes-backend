@@ -1,27 +1,34 @@
 package com.projects.recipesservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="user_auth")
+@Table(name="users")
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
-public class UserAuth {
+@Setter
+
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
+    @Column
+    @NonNull
+    private String firstName;
 
-    @Column(nullable = false, unique = true)
+    @Column
+    @NonNull
+    private String lastName;
+
+    @Column
+    @NonNull
     private String email;
 
     @Column
+    @NonNull
     private String password;
 }
